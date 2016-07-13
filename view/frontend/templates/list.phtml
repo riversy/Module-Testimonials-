@@ -1,0 +1,21 @@
+<?php /** @var $testimonial \Test\Testimonials\Block\TestimonialList */ ?>
+<h1><?php echo __('Testimonials') ?></h1>
+<ul class="testimonial-list">
+    <?php /** @var $block \Test\Testimonials\Model\Testimonial */ ?>
+    <?php foreach ($block->getTestimonials() as $testimonial): ?>
+        <li class="testimonial-list-item">
+            <h3 class="testimonial-item-title">
+               <?php echo $testimonial->getTitle() ?>
+            </h3>
+
+            <div class="testimonial-item-content">
+                <?php echo $testimonial->getContent(); ?>
+            </div>
+
+            <div class="testimonial-item-meta">
+                <strong><?php echo __('Created at:') ?></strong> <?php echo $testimonial->getCreationTime() ?>
+            </div>
+        </li>
+    <?php endforeach; ?>
+</ul>
+

@@ -1,0 +1,30 @@
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="customer_testimonials" class="Test\Testimonials\Block\Widget\Testimonial">
+        <label translate="true">Customer Testimonials</label>
+        <description translate="true">Contents of a Testimonial</description>
+        <parameters>
+            <parameter name="testimonials_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Testimonials to Display</label>
+                <value>3</value>
+            </parameter>
+            <parameter name="sort_order" xsi:type="select" visible="true"
+                       source_model="Test\Testimonials\Model\Config\Source\Yesno">
+                <label translate="true">Sort Order by Creation Time</label>
+                <value>DESC</value>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="10">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="widget/testimonial.phtml" selected="true">
+                        <label translate="true">Template Testimonials Default</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
+
+
+
+
