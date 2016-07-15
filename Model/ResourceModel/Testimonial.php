@@ -33,7 +33,7 @@ class Testimonial extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     protected function _construct()
     {
-        $this->_init('Test_Testimonials', 'testimonials_id');
+        $this->_init('test_testimonials', 'testimonials_id');
     }
 
     /**

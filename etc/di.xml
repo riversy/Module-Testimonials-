@@ -19,7 +19,7 @@
     </virtualType>
     <virtualType name="Test\Testimonials\Model\ResourceModel\Testimonial\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
-            <argument name="mainTable" xsi:type="string">Test_Testimonials</argument>
+            <argument name="mainTable" xsi:type="string">test_testimonials</argument>
             <argument name="resourceModel" xsi:type="string">Test\Testimonials\Model\ResourceModel\Testimonial</argument>
         </arguments>
     </virtualType>

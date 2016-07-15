@@ -21,7 +21,7 @@ class InstallSchema implements InstallSchemaInterface
         $installer->startSetup();
 
         $table = $installer->getConnection()
-            ->newTable($installer->getTable('Test_testimonials'))
+            ->newTable($installer->getTable('test_testimonials'))
             ->addColumn(
                 'testimonials_id',
                 Table::TYPE_INTEGER,
