@@ -14,7 +14,7 @@
     <virtualType name="TestimonialGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
         <arguments>
             <argument name="collection" xsi:type="object" shared="false">Test\Testimonials\Model\Resource\Testimonial\Collection</argument>
-            <argument name="filterPool" xsi:type="object" shared="false">BlogGirdFilterPool</argument><!--!!!-->
+            <argument name="filterPool" xsi:type="object" shared="false">TestimonialGirdFilterPool</argument><!--!!!-->
         </arguments>
     </virtualType>
     <virtualType name="Test\Testimonials\Model\ResourceModel\Testimonial\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
