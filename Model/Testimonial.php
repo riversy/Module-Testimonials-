@@ -35,6 +35,7 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
     protected $_urlBuilder;
     /**
      * @param \Magento\Framework\Model\Context $context
+     * @param \Magento\Framework\UrlInterface $urlBuilder
      * @param \Magento\Framework\Registry $registry
      * @param \Magento\Framework\Model\ResourceModel\AbstractResource|null $resource
      * @param \Magento\Framework\Data\Collection\AbstractDb|null $resourceCollection
@@ -76,7 +77,7 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
             return parent::beforeSave();
         }
         throw new \Magento\Framework\Exception\LocalizedException(
-            __('Make sure that static testimonial content does not reference the testimonial itself.')
+            __('Make sure that testimonial content does not reference the testimonial itself.')
         );
     }
 

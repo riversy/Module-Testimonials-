@@ -37,7 +37,6 @@ class TestimonialRepository implements TestimonialRepositoryInterface
      * @param TestimonialFactory $testimonialFactory
      * @param Data\TestimonialInterfaceFactory $dataTestimonialFactory
      * @param TestimonialCollectionFactory $TestimonialCollectionFactory
-     * @param Data\TestimonialSearchResultsInterfaceFactory $searchResultsFactory
      *
      */
     public function __construct(
@@ -63,6 +62,7 @@ class TestimonialRepository implements TestimonialRepositoryInterface
      */
     public function save(Data\TestimonialInterface $testimonial)
     {
+        /** @var  $testimonial \Test\Testimonials\Model\Testimonial */
         $storeId = $this->storeManager->getStore()->getId();
         $testimonial->setStoreId($storeId);
         try {

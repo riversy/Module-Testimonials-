@@ -1,6 +1,8 @@
 <?php
 namespace Test\Testimonials\Controller\Index;
 
+use \Magento\Framework\App\Action\Context;
+use \Magento\Framework\View\Result\PageFactory;
 use \Magento\Framework\App\Action\Action;
 
 class Index extends Action
@@ -11,8 +13,8 @@ class Index extends Action
      * @param \Magento\Framework\App\Action\Context $context
      */
     public function __construct    (
-        \Magento\Framework\App\Action\Context $context,
-        \Magento\Framework\View\Result\PageFactory $resultPageFactory
+        Context $context,
+        PageFactory $resultPageFactory
     )
     {
         $this->resultPageFactory = $resultPageFactory;

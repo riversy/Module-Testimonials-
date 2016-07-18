@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
         <add id="Test_Testimonials::post" title="Testimonials"  module="Test_Testimonials"
-             sortOrder="20" parent="Magento_Backend::content_elements" action="testimonials/testimonial"
+             sortOrder="50" parent="Magento_Backend::content_elements" action="testimonials/testimonial"
              resource="Test_Testimonials::testimonial"/>
     </menu>
 </config>

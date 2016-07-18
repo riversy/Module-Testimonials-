@@ -71,12 +71,16 @@ class Save extends \Test\Testimonials\Controller\Adminhtml\Testimonial
             } catch (LocalizedException $e) {
                 $this->messageManager->addError($e->getMessage());
             } catch (\Exception $e) {
-                $this->messageManager->addException($e, __('Something went wrong while saving the block.'));
+                $this->messageManager->addException($e, __('Something went wrong while saving the testimonial.'));
             }
 
             $this->dataPersistor->set('testimonial', $data);
             return $resultRedirect->setPath('*/*/edit', ['testimonials_id' => $this->getRequest()->getParam('testimonials_id')]);
         }
         return $resultRedirect->setPath('*/*/');
+    }
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Test_Testimonials::save');
     }
 }

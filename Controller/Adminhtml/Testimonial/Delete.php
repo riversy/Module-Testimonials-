@@ -36,6 +36,12 @@ class Delete extends \Test\Testimonials\Controller\Adminhtml\Testimonial
         // go to grid
         return $resultRedirect->setPath('*/*/');
     }
+
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Test_Testimonials::testimonial_delete');
+    }
+
 }
 
 

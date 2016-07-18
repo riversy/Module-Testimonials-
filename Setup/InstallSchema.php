@@ -33,7 +33,7 @@ class InstallSchema implements InstallSchemaInterface
             ->addColumn('content', Table::TYPE_TEXT, 1024, [], 'Testimonials Content')
             ->addColumn('is_active', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '1'], 'Is Testimonials Active?')
             ->addColumn('creation_time', Table::TYPE_TIMESTAMP, null, ['nullable' => false,'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT], 'Creation Time')
-            ->setComment(' Testimonials Posts');
+            ->setComment(' Testimonials');
 
         $installer->getConnection()->createTable($table);
 

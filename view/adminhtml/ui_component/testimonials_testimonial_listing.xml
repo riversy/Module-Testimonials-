@@ -118,7 +118,7 @@
                             </item>
                             <item name="enable" xsi:type="array">
                                 <item name="value" xsi:type="string">1</item>
-                                <item name="label" xsi:type="string" translate="true">Published</item>
+                                <item name="label" xsi:type="string" translate="true">Enabled</item>
                             </item>
                         </item>
                     </item>
@@ -157,12 +157,6 @@
             </filterRange>
          </filters>
         <massaction name="listing_massaction">
-            <!--<argument name="data" xsi:type="array">-->
-                <!--<item name="config" xsi:type="array">-->
-                    <!--<item name="selectProvider" xsi:type="string">testimonials_testimonial_listing.testimonials_testimonial_listing.testimonials_testimonial_columns.ids</item>-->
-                    <!--<item name="indexField" xsi:type="string">testimonials_id</item>-->
-                <!--</item>-->
-            <!--</argument>-->
             <action name="delete">
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
@@ -183,7 +177,7 @@
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="editorConfig" xsi:type="array">
-                    <item name="selectProvider" xsi:type="string">testimonials_testimonial_listing.cms_block_listing.cms_block_columns.ids</item>
+                    <item name="selectProvider" xsi:type="string">testimonials_testimonial_listing.testimonials_testimonial_listing.testimonials_testimonial_columns.ids</item>
                     <item name="enabled" xsi:type="boolean">true</item>
                     <item name="indexField" xsi:type="string">block_id</item>
                     <item name="clientConfig" xsi:type="array">
@@ -193,7 +187,7 @@
                 </item>
                 <item name="childDefaults" xsi:type="array">
                     <item name="fieldAction" xsi:type="array">
-                        <item name="provider" xsi:type="string">testimonials_testimonial_listing.testimonials_testimonial_listing.cms_block_columns_editor</item>
+                        <item name="provider" xsi:type="string">testimonials_testimonial_listing.testimonials_testimonial_listing.testimonials_testimonial_columns_editor</item>
                         <item name="target" xsi:type="string">startEdit</item>
                         <item name="params" xsi:type="array">
                             <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>

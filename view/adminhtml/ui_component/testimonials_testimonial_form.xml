@@ -58,7 +58,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">boolean</item>
-                    <item name="label" xsi:type="string" translate="true">Enable Block</item>
+                    <item name="label" xsi:type="string" translate="true">Enable Testimonial</item>
                     <item name="formElement" xsi:type="string">checkbox</item>
                     <item name="source" xsi:type="string">testimonial</item>
                     <item name="sortOrder" xsi:type="number">10</item>
@@ -94,11 +94,7 @@
                     <item name="label" xsi:type="string" translate="true">Text</item>
                     <item name="formElement" xsi:type="string">textarea</item>
                     <item name="source" xsi:type="string">testimonial</item>
-                    <item name="sortOrder" xsi:type="number">30</item>
                     <item name="dataScope" xsi:type="string">content</item>
-                    <item name="additionalClasses" xsi:type="string">admin__field-wide</item>
-                    <item name= "resizeEnabled" xsi:type="boolean">true</item>
-                    <item name= "resizeDefaultLength" xsi:type="string">60</item>
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">true</item>
                     </item>

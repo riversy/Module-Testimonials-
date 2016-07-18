@@ -1,6 +1,8 @@
 <?php
 namespace Test\Testimonials\Model\Testimonial\Source;
 
+use \Test\Testimonials\Model\Testimonial;
+
 class IsActive implements \Magento\Framework\Data\OptionSourceInterface
 {
     /**
@@ -13,7 +15,7 @@ class IsActive implements \Magento\Framework\Data\OptionSourceInterface
      *
      * @param \Test\Testimonials\Model\Testimonial $testimonial
      */
-    public function __construct(\Test\Testimonials\Model\Testimonial $testimonial)
+    public function __construct(Testimonial $testimonial)
     {
         $this->testimonial = $testimonial;
     }

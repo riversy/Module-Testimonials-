@@ -1,7 +1,7 @@
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
     <widget id="customer_testimonials" class="Test\Testimonials\Block\Widget\Testimonial">
-        <label translate="true">Customer Testimonials</label>
+        <label translate="true">Customer's Testimonials</label>
         <description translate="true">Contents of a Testimonial</description>
         <parameters>
             <parameter name="testimonials_count" xsi:type="text" required="true" visible="true">

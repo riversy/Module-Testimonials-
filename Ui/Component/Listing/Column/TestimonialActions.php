@@ -41,10 +41,7 @@ class TestimonialActions extends Column
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
-    /**
-     * @param array $items
-     * @return array
-     */
+
     /**
      * Prepare Data Source
      *

@@ -1,6 +1,8 @@
 <?php
 namespace Test\Testimonials\Model\ResourceModel;
 
+use \Magento\Framework\Model\ResourceModel\Db\Context;
+use \Magento\Framework\Stdlib\DateTime\DateTime;
 
 class Testimonial extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
@@ -18,8 +20,8 @@ class Testimonial extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      * @param string|null $resourcePrefix
      */
     public function __construct(
-        \Magento\Framework\Model\ResourceModel\Db\Context $context,
-        \Magento\Framework\Stdlib\DateTime\DateTime $date,
+       Context $context,
+       DateTime $date,
         $resourcePrefix = null
     ) {
         parent::__construct($context, $resourcePrefix);
