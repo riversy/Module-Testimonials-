@@ -30,6 +30,11 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
     protected $_eventPrefix = 'testimonial';
 
     /**
+     * @var UploaderPool
+     */
+    protected $uploaderPool;
+
+    /**
      * @var \Magento\Framework\UrlInterface
      */
     protected $_urlBuilder;
@@ -45,11 +50,13 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\UrlInterface $urlBuilder,
         \Magento\Framework\Registry $registry,
+        UploaderPool $uploaderPool,
         \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
         \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
         array $data = [])
     {
-        $this->_urlBuilder = $urlBuilder;
+        $this->uploaderPool = $uploaderPool;
+        $this->_urlBuilder  = $urlBuilder;
         parent::__construct($context, $registry, $resource, $resourceCollection, $data);
     }
 
@@ -122,6 +129,51 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
     }
 
     /**
+     * Get avatar
+     *
+     * @return string
+     */
+    public function getAvatar()
+    {
+        return $this->getData(TestimonialInterface::AVATAR);
+    }
+
+    /**
+     * @return bool|string
+     * @throws LocalizedException
+     */
+    public function getAvatarUrl()
+    {
+        $url = false;
+        $avatar = $this->getAvatar();
+        if ($avatar) {
+            if (is_string($avatar)) {
+                $uploader = $this->uploaderPool->getUploader('image');
+                $url = $uploader->getBaseUrl().$uploader->getBasePath().$avatar;
+            } else {
+                throw new LocalizedException(
+                    __('Something went wrong while getting the avatar url.')
+                );
+            }
+        }
+        return $url;
+    }
+
+    /**
+     * Return the desired URL of a Testimonial
+     *  eg: /testimonials/view/index/id/1/
+     * @TODO Move to a TestimonialUrl model, and make use of the
+     * @TODO rewrite system, using url_key to build url.
+     * @TODO desired url: /testimonials/my-test-testimonials-testimonial-title
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->_urlBuilder->getUrl();
+    }
+
+    /**
      * Get content
      *
      * @return string|null
@@ -170,6 +222,17 @@ class Testimonial  extends \Magento\Framework\Model\AbstractModel implements Tes
     public function setTitle($title)
     {
         return $this->setData(self::TITLE, $title);
+    }
+
+    /**
+     * set avatar
+     *
+     * @param $avatar
+     * @return \Test\Testimonials\Api\Data\TestimonialInterface
+     */
+    public function setAvatar($avatar)
+    {
+        return $this->setData(TestimonialInterface::AVATAR, $avatar);
     }
 
     /**

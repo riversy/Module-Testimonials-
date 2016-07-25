@@ -39,3 +39,7 @@
 "Delete","Delete"
 "Are you sure you wan't to delete selected items?","Are you sure you wan't to delete selected items?"
 "Name","Name"
+"Uploader not found for type:","Uploader not found for type:"
+"Uploader for type ... not instance of ","Uploader for type ... not instance of "
+"Something went wrong while saving the file(s).","Something went wrong while saving the file(s)."
+"File can not be saved to the destination folder.","File can not be saved to the destination folder."

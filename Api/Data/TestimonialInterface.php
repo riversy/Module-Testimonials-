@@ -9,6 +9,7 @@ interface TestimonialInterface
      */
     const TESTIMONIALS_ID      = 'testimonials_id';
     const TITLE                = 'title';
+    const AVATAR               = 'avatar';
     const CONTENT              = 'content';
     const CREATION_TIME        = 'creation_time';
     const IS_ACTIVE            = 'is_active';
@@ -26,6 +27,19 @@ interface TestimonialInterface
      * @return string|null
      */
     public function getTitle();
+
+    /**
+     * Get avatar
+     *
+     * @return string
+     */
+    public function getAvatar();
+    /**
+     * Return full URL including base url.
+     *
+     * @return mixed
+     */
+    public function getUrl();
 
     /**
      * Get content
@@ -67,6 +81,14 @@ interface TestimonialInterface
      */
 
     public function setTitle($title);
+
+    /**
+     * set avatar
+     *
+     * @param $avatar
+     * @return \Test\Testimonials\Api\Data\TestimonialInterface
+     */
+    public function setAvatar($avatar);
 
     /**
      * Set content

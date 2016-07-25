@@ -7,6 +7,7 @@ use Test\Testimonials\Model\Testimonial;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\TestFramework\Inspection\Exception;
+use Test\Testimonials\Model\UploaderPool;
 
 class Save extends \Test\Testimonials\Controller\Adminhtml\Testimonial
 {
@@ -16,6 +17,11 @@ class Save extends \Test\Testimonials\Controller\Adminhtml\Testimonial
     protected $dataPersistor;
 
     /**
+     * @var UploaderPool
+     */
+    protected $uploaderPool;
+
+    /**
      * @param Context $context
      * @param \Magento\Framework\Registry $coreRegistry
      * @param DataPersistorInterface $dataPersistor
@@ -23,9 +29,11 @@ class Save extends \Test\Testimonials\Controller\Adminhtml\Testimonial
     public function __construct(
         Context $context,
         \Magento\Framework\Registry $coreRegistry,
-        DataPersistorInterface $dataPersistor
+        DataPersistorInterface $dataPersistor,
+        UploaderPool $uploaderPool
     ) {
         $this->dataPersistor = $dataPersistor;
+        $this->uploaderPool = $uploaderPool;
         parent::__construct($context, $coreRegistry);
     }
 
@@ -49,7 +57,8 @@ class Save extends \Test\Testimonials\Controller\Adminhtml\Testimonial
             if (empty($data['testimonials_id'])) {
                 $data['testimonials_id'] = null;
             }
-
+            $avatar = $this->getUploader('image')->uploadFileAndGetName('avatar', $data);
+            $data['avatar'] = $avatar;
             /** @var \Test\Testimonials\Model\Testimonial $model */
             $model = $this->_objectManager->create('Test\Testimonials\Model\Testimonial')->load($id);
             if (!$model->getId() && $id) {
@@ -78,6 +87,17 @@ class Save extends \Test\Testimonials\Controller\Adminhtml\Testimonial
             return $resultRedirect->setPath('*/*/edit', ['testimonials_id' => $this->getRequest()->getParam('testimonials_id')]);
         }
         return $resultRedirect->setPath('*/*/');
+    }
+
+    /**
+     * @param $type
+     * @return Uploader
+     * @throws \Exception
+     */
+    protected function getUploader($type)
+    {
+        return $this->uploaderPool->getUploader($type);
+
     }
     protected function _isAllowed()
     {
